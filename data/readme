@@ -1,0 +1,11 @@
+# Nov 27 2024
+# Code I (Justine Hansen) ran to generate the atlas and gene expression files
+
+# pip install git+https://github.com/rmarkello/abagen
+
+import abagen
+
+atlas = abagen.fetch_desikan_killiany()
+expression = abagen.get_expression_data(atlas['image'], atlas['info'], lr_mirror='bidirectional')
+
+expression.to_csv('abagen_gexpression_desikankilliany.csv', index=False)
